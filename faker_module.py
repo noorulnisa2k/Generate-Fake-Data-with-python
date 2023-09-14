@@ -1,15 +1,18 @@
 from faker import Faker
 from faker.providers import DynamicProvider
 
+# Custom list for products
 lyftrondata_provider = DynamicProvider(
     provider_name="product_names",
     elements=['Shirts','Jeans', 'Top','Cap','Formal Dress','Casual dress']
 )
 
+# initialize Faker generator
 fake = Faker(["en_US"])
+# add custom provider to in faker generator
 fake.add_provider(lyftrondata_provider)
 
-
+# Function that will generate specific fake data
 def customer(number):
     fetchedData = {
         "customer": []
